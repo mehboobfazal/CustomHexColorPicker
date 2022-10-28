@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CustomHexColorPicker</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="CustomHexColorPicker.lib.js"></script>
+    <style>
+        body {
+            margin: 0;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1em;
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        .colorInput1,
+        .colorInput2 {
+            width: 100px;
+            height: 20px;
+            border: 1px solid black;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        .colorInput1:hover,
+        .colorInput2:hover {
+            box-shadow: 0 0 5px 0px #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="colorInput1" data-color='transparent'>select color1</div>
+        <div class="colorInput2" data-color='transparent'>select color2</div>
+    </div>
+    <script src="script.js" />
+</body>
+
+</html>

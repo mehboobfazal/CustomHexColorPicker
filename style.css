@@ -1,0 +1,321 @@
+/*Common*/
+/*CONTAINER*/
+/*PRESET COLORS*/
+/*CUSTOM COLORS*/
+/*SPECTRUM*/
+/*STRIP*/
+/*HEX INPUT ROW*/
+/*CONTROLS*/
+customhexcp-view {
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  border: 1px solid black;
+  visibility: hidden;
+  outline: none;
+}
+
+customhexcp-view hexcp-palette {
+  width: calc(10 * 18px + 9 * 2px);
+  height: calc(100% - 2*8px);
+  margin: 8px;
+  float: left;
+}
+
+customhexcp-view hexcp-palette preset-colors {
+  display: block;
+}
+
+customhexcp-view hexcp-palette preset-colors .presetColorRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+customhexcp-view hexcp-palette preset-colors .presetColorRow:first-of-type {
+  margin-bottom: 2px;
+}
+
+customhexcp-view hexcp-palette preset-colors .presetColorRow:last-of-type .presetColor {
+  margin-bottom: 0;
+}
+
+customhexcp-view hexcp-palette preset-colors .presetColorRow .presetColor {
+  width: 18px;
+  height: 18px;
+  margin: 0 2px 2px 0;
+  cursor: pointer;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+customhexcp-view hexcp-palette preset-colors .presetColorRow .presetColor:hover, customhexcp-view hexcp-palette preset-colors .presetColorRow .presetColor.active {
+  -webkit-transform: scale(1.05, 1.05);
+          transform: scale(1.05, 1.05);
+  -webkit-box-shadow: 0 0 1px 0 black;
+          box-shadow: 0 0 1px 0 black;
+}
+
+customhexcp-view hexcp-palette preset-colors .presetColorRow .presetColor:last-of-type {
+  margin-right: 0;
+}
+
+customhexcp-view hexcp-palette custom-colors {
+  display: block;
+  margin-top: 8px;
+}
+
+customhexcp-view hexcp-palette custom-colors label {
+  display: block;
+  color: #777;
+  margin-bottom: 5px;
+  height: 16px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: calc(50% - 2px - 4px - 40px);
+}
+
+customhexcp-view hexcp-palette custom-colors .customColorBox {
+  width: calc(100% + 2px);
+}
+
+customhexcp-view hexcp-palette custom-colors .customColorBox .customColor,
+customhexcp-view hexcp-palette custom-colors .customColorBox .addCustomColor {
+  color: #333;
+  border: 1px inset #777;
+  -webkit-box-sizing: initial;
+          box-sizing: initial;
+  width: calc(18px - 2px);
+  height: calc(18px - 2px);
+  margin: 0 2px 4px 0;
+  font-size: 18px;
+  line-height: calc(18px - 2px);
+  text-align: center;
+  float: left;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-box-shadow: -1px -1px;
+          box-shadow: -1px -1px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+customhexcp-view hexcp-palette custom-colors .customColorBox .customColor:hover,
+customhexcp-view hexcp-palette custom-colors .customColorBox .addCustomColor:hover {
+  -webkit-transform: scale(1.05, 1.05);
+          transform: scale(1.05, 1.05);
+}
+
+customhexcp-view hexcp-palette custom-colors .customColorBox .customColor.active {
+  -webkit-transform: scale(1.05, 1.05);
+          transform: scale(1.05, 1.05);
+  -webkit-box-shadow: 1px 1px inset #000;
+          box-shadow: 1px 1px inset #000;
+  border: 1px inset #000;
+  -webkit-box-sizing: initial;
+          box-sizing: initial;
+}
+
+customhexcp-view hexcp-palette custom-colors .customColorBox .customColor.empty {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-color: #ddd;
+}
+
+customhexcp-view hexcp-palette custom-colors .customColorBox .addCustomColor.disable {
+  pointer-events: none;
+  background: #ccc;
+}
+
+customhexcp-view hexcp-main {
+  width: 200px;
+  height: calc(100% - 2*8px);
+  margin: 8px;
+  float: right;
+  -webkit-box-shadow: -7px 0 0px 0px #fff, -8px 0 0px 0px #ddd;
+          box-shadow: -7px 0 0px 0px #fff, -8px 0 0px 0px #ddd;
+}
+
+customhexcp-view hexcp-main .spectrum {
+  width: 100%;
+  height: calc(160px - 15px - 8px);
+  position: relative;
+  overflow: hidden;
+}
+
+customhexcp-view hexcp-main .spectrum .brightSpectrum {
+  height: 100%;
+  background-image: -webkit-gradient(linear, left top, right top, from(#fff), to(rgba(204, 154, 129, 0)));
+  background-image: linear-gradient(to right, #fff, rgba(204, 154, 129, 0));
+}
+
+customhexcp-view hexcp-main .spectrum .brightSpectrum .darkSpectrum {
+  height: 100%;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#000), to(rgba(204, 154, 129, 0)));
+  background-image: linear-gradient(to top, #000, rgba(204, 154, 129, 0));
+}
+
+customhexcp-view hexcp-main .spectrum .brightSpectrum .darkSpectrum .spectrumDragger {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 0px 2px white;
+          box-shadow: 0 0 0px 2px white;
+}
+
+customhexcp-view hexcp-main .colorStrip {
+  position: relative;
+  margin-top: 8px;
+  height: 15px;
+  background: -webkit-gradient(linear, left top, right top, from(red), color-stop(yellow), color-stop(lime), color-stop(cyan), color-stop(blue), color-stop(magenta), to(red));
+  background: linear-gradient(to right, red, yellow, lime, cyan, blue, magenta, red);
+}
+
+customhexcp-view hexcp-main .colorStrip .colorStripDragger {
+  width: 3px;
+  height: 100%;
+  position: absolute;
+  padding: 2px 0;
+  top: -2px;
+  cursor: pointer;
+  background: #333;
+  -webkit-box-shadow: 0 0 0px 2px silver;
+          box-shadow: 0 0 0px 2px silver;
+  -webkit-box-sizing: initial;
+          box-sizing: initial;
+}
+
+customhexcp-view hexcp-main .hexInputRow {
+  height: 28px;
+  margin-top: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+customhexcp-view hexcp-main .hexInputRow .chosenColor,
+customhexcp-view hexcp-main .hexInputRow .hexInput {
+  width: calc(50% - 8px/2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+customhexcp-view hexcp-main .hexInputRow .chosenColor {
+  background-image: linear-gradient(45deg, #808080 25%, transparent 25%), linear-gradient(-45deg, #808080 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #808080 75%), linear-gradient(-45deg, transparent 75%, #808080 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+}
+
+customhexcp-view hexcp-main .hexInputRow .chosenColor .prevColor {
+  width: calc(50% - 2px);
+  cursor: pointer;
+  border: 1px solid #808080;
+  -webkit-box-sizing: initial;
+          box-sizing: initial;
+}
+
+customhexcp-view hexcp-main .hexInputRow .chosenColor .currColor {
+  width: calc(50% - 1px);
+  border: 1px solid #808080;
+  -webkit-box-sizing: initial;
+          box-sizing: initial;
+  border-left: none;
+}
+
+customhexcp-view hexcp-main .hexInputRow .hexInput {
+  margin-left: 8px;
+}
+
+customhexcp-view hexcp-main .hexInputRow .hexInput.invalid .hexCodePrefix,
+customhexcp-view hexcp-main .hexInputRow .hexInput.invalid .hexCode {
+  color: orangered;
+  font-style: italic;
+}
+
+customhexcp-view hexcp-main .hexInputRow .hexInput .hexCodePrefix {
+  background: #333;
+  color: #fff;
+  line-height: 28px;
+  padding: 0 10px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+customhexcp-view hexcp-main .hexInputRow .hexInput .hexCode {
+  background: #fff;
+  overflow: hidden;
+  height: inherit;
+  border: 1px solid #333;
+  -webkit-box-sizing: initial;
+          box-sizing: initial;
+  border-left: none;
+  outline: none;
+  color: #222;
+  text-indent: 3px;
+  font-size: calc(28px / 2);
+  text-transform: uppercase;
+  padding: 0;
+}
+
+customhexcp-view hexcp-main .selectColorRow {
+  height: 28px;
+  margin-top: 8px;
+}
+
+customhexcp-view hexcp-main .selectColorRow button {
+  height: 100%;
+  float: right;
+  padding: 0 20px;
+  border: 1px solid dodgerblue;
+  -webkit-box-sizing: initial;
+          box-sizing: initial;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  outline: none;
+  white-space: nowrap;
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: calc(50% - 2px - 8px / 2 - 40px);
+}
+
+customhexcp-view hexcp-main .selectColorRow .cancelSelect {
+  background: white;
+  margin-right: 8px;
+  color: dodgerblue;
+}
+
+customhexcp-view hexcp-main .selectColorRow .cancelSelect:hover {
+  background-color: #e6e6e6;
+}
+
+customhexcp-view hexcp-main .selectColorRow .selectColor {
+  background-color: dodgerblue;
+  color: white;
+}
+
+customhexcp-view hexcp-main .selectColorRow .selectColor:hover {
+  background-color: #0077ea;
+}
+
+customhexcp-view hexcp-main .selectColorRow .selectColor.disable {
+  pointer-events: none;
+  background: #ccc;
+}
+/*# sourceMappingURL=style.css.map */

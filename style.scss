@@ -1,0 +1,300 @@
+﻿/*Common*/
+
+$common_margin: 8px;
+$common_transition: 0.2s;
+$common_transform: scale(1.05, 1.05);
+
+/*CONTAINER*/
+
+$cp_backcolor: white;
+$cp_border: 1px solid black;
+
+/*PRESET COLORS*/
+
+$preset_color_width: 18px;
+$preset_color_height: 18px;
+$preset_color_marginright: 2px;
+$preset_color_marginbottom: 2px;
+$preset_colors_height: 8*($preset_color_height + $preset_color_marginbottom);
+
+/*CUSTOM COLORS*/
+
+$custom_label_height: 16px;
+$custom_label_marginbottom: 5px;
+$custom_label_color: #777;
+$custom_color_width: 18px;
+$custom_color_height: 18px;
+$custom_color_marginright: 2px;
+$custom_color_marginbottom: 4px;
+
+/*SPECTRUM*/
+
+$spectrum_width: 200px;
+$spectrum_dragger_shadow: 0 0 0px 2px white;
+$spectrum_dragger_diameter: 20px;
+
+/*STRIP*/
+
+$strip_height: 15px;
+$strip_dragger_backcolor: #333;
+$strip_dragger_shadow: 0 0 0px 2px silver;
+$strip_dragger_width: 3px;
+
+/*HEX INPUT ROW*/
+
+$inputrow_height: 28px;
+$chosen_color_border: 1px solid #808080;
+$hexprefix_backcolor: #333;
+$hexprefix_color: #fff;
+$hexcode_backcolor: #fff;
+$hexcode_color: #222;
+$hex_invalidcolor: orangered;
+
+/*CONTROLS*/
+
+$btn_height: 28px;
+$btn_bordercolor: dodgerblue;
+$cancel_btn_backcolor: white;
+$cancel_btn_color: dodgerblue;
+$select_btn_backcolor: dodgerblue;
+$select_btn_color: white;
+$select_btn_disablebackcolor: #ccc;
+customhexcp-view {
+    position: absolute;
+    background-color: $cp_backcolor;
+    z-index: 1;
+    border: $cp_border;
+    visibility: hidden;
+    outline: none;
+    hexcp-palette {
+        width: calc(10 * #{$preset_color_width} + 9 * #{$preset_color_marginright});
+        height: calc(100% - 2*#{$common_margin});
+        margin: $common_margin;
+        float: left;
+        preset-colors {
+            display: block;
+            .presetColorRow {
+                display: flex;
+                &:first-of-type {
+                    margin-bottom: $preset_color_marginbottom;
+                }
+                &:last-of-type .presetColor {
+                    margin-bottom: 0;
+                }
+                .presetColor {
+                    width: $preset_color_width;
+                    height: $preset_color_height;
+                    margin: 0 $preset_color_marginright $preset_color_marginbottom 0;
+                    cursor: pointer;
+                    transition: $common_transition;
+                    &:hover,
+                    &.active {
+                        transform: $common_transform;
+                        box-shadow: 0 0 1px 0 black;
+                    }
+                    &:last-of-type {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+        custom-colors {
+            display: block;
+            margin-top: $common_margin;
+            label {
+                display: block;
+                color: $custom_label_color;
+                margin-bottom: $custom_label_marginbottom;
+                height: $custom_label_height;
+                user-select: none;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                max-width: calc(50% - 2px - 4px - 40px);
+            }
+            .customColorBox {
+                width: calc(100% + #{$custom_color_marginright});
+                .customColor,
+                .addCustomColor {
+                    color: #333;
+                    border: 1px inset #777;
+                    box-sizing: initial;
+                    width: calc(#{$custom_color_width} - 2px);
+                    height: calc(#{$custom_color_height} - 2px);
+                    margin: 0 $custom_color_marginright $custom_color_marginbottom 0;
+                    font-size: $custom_color_height;
+                    line-height: calc(#{$custom_color_height} - 2px);
+                    text-align: center;
+                    float: left;
+                    cursor: pointer;
+                    user-select: none;
+                    box-shadow: -1px -1px;
+                    transition: $common_transition;
+                    &:hover {
+                        transform: $common_transform;
+                    }
+                }
+                .customColor {
+                    &.active {
+                        transform: $common_transform;
+                        box-shadow: 1px 1px inset #000;
+                        border: 1px inset #000;
+                        box-sizing: initial;
+                    }
+                    &.empty {
+                        box-shadow: none;
+                        border-color: #ddd;
+                    }
+                }
+                .addCustomColor {
+                    &.disable {
+                        pointer-events: none;
+                        background: $select_btn_disablebackcolor;
+                    }
+                }
+            }
+        }
+    }
+    hexcp-main {
+        width: $spectrum_width;
+        height: calc(100% - 2*#{$common_margin});
+        margin: $common_margin;
+        float: right;
+        box-shadow: -($common_margin - 1px) 0 0px 0px #fff, -$common_margin 0 0px 0px #ddd;
+        .spectrum {
+            width: 100%;
+            height: calc(#{$preset_colors_height} - #{$strip_height} - #{$common_margin});
+            position: relative;
+            overflow: hidden;
+            .brightSpectrum {
+                height: 100%;
+                background-image: linear-gradient(to right, #fff, rgba(204, 154, 129, 0));
+                .darkSpectrum {
+                    height: 100%;
+                    background-image: linear-gradient(to top, #000, rgba(204, 154, 129, 0));
+                    .spectrumDragger {
+                        width: $spectrum_dragger_diameter;
+                        height: $spectrum_dragger_diameter;
+                        border-radius: 50%;
+                        position: absolute;
+                        cursor: pointer;
+                        box-shadow: $spectrum_dragger_shadow;
+                    }
+                }
+            }
+        }
+        .colorStrip {
+            position: relative;
+            margin-top: $common_margin;
+            height: $strip_height;
+            background: linear-gradient(to right, hsl(0, 100%, 50%), hsl(60, 100%, 50%), hsl(120, 100%, 50%), hsl(180, 100%, 50%), hsl(240, 100%, 50%), hsl(300, 100%, 50%), hsl(360, 100%, 50%));
+            .colorStripDragger {
+                width: $strip_dragger_width;
+                height: 100%;
+                position: absolute;
+                padding: 2px 0;
+                top: -2px;
+                cursor: pointer;
+                background: $strip_dragger_backcolor;
+                box-shadow: $strip_dragger_shadow;
+                box-sizing: initial;
+            }
+        }
+        .hexInputRow {
+            height: $inputrow_height;
+            margin-top: $common_margin;
+            display: flex;
+            .chosenColor,
+            .hexInput {
+                width: calc(50% - #{$common_margin}/2);
+                display: flex;
+            }
+            .chosenColor {
+                background-image: linear-gradient(45deg, #808080 25%, transparent 25%), linear-gradient(-45deg, #808080 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #808080 75%), linear-gradient(-45deg, transparent 75%, #808080 75%);
+                background-size: 16px 16px;
+                background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+                .prevColor {
+                    width: calc(50% - 2px);
+                    cursor: pointer;
+                    border: $chosen_color_border;
+                    box-sizing: initial;
+                }
+                .currColor {
+                    width: calc(50% - 1px);
+                    border: $chosen_color_border;
+                    box-sizing: initial;
+                    border-left: none;
+                }
+            }
+            .hexInput {
+                margin-left: $common_margin;
+                &.invalid {
+                    .hexCodePrefix,
+                    .hexCode {
+                        color: $hex_invalidcolor;
+                        font-style: italic;
+                    }
+                }
+                .hexCodePrefix {
+                    background: $hexprefix_backcolor;
+                    color: $hexprefix_color;
+                    line-height: $inputrow_height;
+                    padding: 0 10px;
+                    user-select: none;
+                }
+                .hexCode {
+                    background: $hexcode_backcolor;
+                    overflow: hidden;
+                    height: inherit;
+                    border: 1px solid $hexprefix_backcolor;
+                    box-sizing: initial;
+                    border-left: none;
+                    outline: none;
+                    color: $hexcode_color;
+                    text-indent: 3px;
+                    font-size: calc(#{$inputrow_height} / 2);
+                    text-transform: uppercase;
+                    padding: 0;
+                }
+            }
+        }
+        .selectColorRow {
+            height: $btn_height;
+            margin-top: $common_margin;
+            button {
+                height: 100%;
+                float: right;
+                padding: 0 20px;
+                border: 1px solid $btn_bordercolor;
+                box-sizing: initial;
+                cursor: pointer;
+                user-select: none;
+                outline: none;
+                white-space: nowrap;
+                display: block;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                max-width: calc(50% - 2px - #{$common_margin} / 2 - 40px);
+            }
+            .cancelSelect {
+                background: $cancel_btn_backcolor;
+                margin-right: $common_margin;
+                color: $cancel_btn_color;
+                &:hover {
+                    background-color: darken($cancel_btn_backcolor, 10%);
+                }
+            }
+            .selectColor {
+                background-color: $select_btn_backcolor;
+                color: $select_btn_color;
+                &:hover {
+                    background-color: darken($select_btn_backcolor, 10%);
+                }
+                &.disable {
+                    pointer-events: none;
+                    background: $select_btn_disablebackcolor;
+                }
+            }
+        }
+    }
+}
