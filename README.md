@@ -9,18 +9,18 @@ Created Custom Hex Color Picker using pure javascript
     <div class="colorInput" data-color='transparent'>select color</div>
 
 3. In your javascript file
-    var colorInputEle = document.querySelector('.colorInput')
-    /*passing down object as parameter is optional*/
-    /*Also be used simple as; var customHexColorPicker = new CustomHexColorPicker();*/
+    var colorInputEle = document.querySelector('.colorInput');
+    /*Passing down object as parameter is optional
+    Also be used simply as; _var customHexColorPicker = new CustomHexColorPicker();_ */
     var customHexColorPicker = new CustomHexColorPicker({
-        palette: true/false,
-        defaultColor: 'red'/'#f00'/'#ff0000',
-        colorattribute: 'anything',
-        customlabeltext: 'anything',
-        canceltext: 'anything',
-        selecttext: 'anything'
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;palette: true/false,
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defaultColor: 'red'/'#f00'/'#ff0000',
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;colorattribute: 'anything',
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;customlabeltext: 'anything',
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;canceltext: 'anything',
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;selecttext: 'anything'
     });
-    /*Register your elements to color picker. You could register multiple elements using same syntax as below*/
+    /*Register your elements to color picker. You could register multiple elements using same syntax as below */
     customHexColorPicker.register(colorInputEle);
   
 # Thanks for being here.😀
