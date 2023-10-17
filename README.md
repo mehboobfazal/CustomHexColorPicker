@@ -2,13 +2,16 @@
 Created Custom Hex Color Picker using pure javascript
 
 # How to use in your project  
-1. Load library in your html file first.  
-    ```<script src="CustomHexColorPicker.lib.js"></script>```
+1. Load library file **CustomHexColorPicker.lib.js** and **style.css** inside your html head.
+    ```
+    <link href="style.css" rel="stylesheet" />
+    <script src="CustomHexColorPicker.lib.js"></script>
+    ```
     
-2. Also in your html file  
+3. Also in your html file  
     ```<div class="colorInput" data-color="transparent">select color</div>```
 
-3. In your javascript file  
+4. In your javascript file  
     ```js
     var colorInputEle = document.querySelector('.colorInput');
     /*Passing down object as parameter is optional  
