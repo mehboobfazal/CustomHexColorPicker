@@ -1,3 +1,4 @@
+/*! CustomHexColorPicker | (c) 2026 Fazal Shah | MIT License */
 class CustomHexColorPicker {
     //constants
     HTML_HEXCOLOR_NAMES = {
