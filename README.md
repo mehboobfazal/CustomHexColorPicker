@@ -29,3 +29,6 @@ Created Custom Hex Color Picker using pure javascript
     ```
   
 # Thanks for being here.😀
+
+# License
+Released under the [MIT License](LICENSE). © 2026 Fazal Shah
